@@ -1,7 +1,15 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, replace, useNavigate } from 'react-router-dom';
 
 
 export const Navbar = () => {
+
+    const navigate = useNavigate(); //Considerado como un custom hook
+
+    const onLogout = () => {
+        console.log('logout');
+        navigate('/login',{replace: true});
+    }
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
             
@@ -46,6 +54,7 @@ export const Navbar = () => {
 
                     <button
                         className='nav-item nav-link btn'
+                        onClick={ onLogout }
                     >
                         Logout
                     </button>
