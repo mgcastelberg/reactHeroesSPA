@@ -23,10 +23,10 @@ export const HeroCard = ({
 
     return (
         <div className='col'>
-            <div className="card">
+            <div className="card shadow" style={{borderColor:'#cfd7e5'}}>
                 <div className="row no-gutters">
                     <div className="col-4">
-                        <img src={heroImageUrl} className="card-img" loading="lazy" alt={superhero} />
+                        <img src={heroImageUrl} className="card-img" loading="lazy" alt={superhero} style={{ borderRadius:'5px 0px 0px 5px'}} />
                     </div>
                     <div className="col-8">
                         <div className="card-body">
