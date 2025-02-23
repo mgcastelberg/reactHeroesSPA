@@ -1,6 +1,8 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getHeroesByName } from '../helpers';
+import { HeroCard } from '../components/HeroCard';
 
 export const SearchPage = () => {
 
@@ -11,11 +13,14 @@ export const SearchPage = () => {
   // console.log({location});
   const query = new URLSearchParams(location.search);
   const {q = ''} = Object.fromEntries(query.entries());
-  // console.log({params});
+  // console.log({q});
 
+  const heroes = getHeroesByName(q);
+  // console.log(heroes);
+  
   // const {  onInputChange, formState: { searchText } } = useForm({
   const {  onInputChange, searchText } = useForm({
-    searchText: ''
+    searchText: q
   });
 
   const onSearchSubmit = (event) => {
@@ -32,7 +37,7 @@ export const SearchPage = () => {
 
       <div className="row">
 
-        <div className="col-4">
+        <div className="col-5">
           <form onSubmit={onSearchSubmit}>
             <div className="input-group mb-3">
               <input 
@@ -49,7 +54,7 @@ export const SearchPage = () => {
           </form>
         </div>
 
-        <div className="col-8">
+        <div className="col-7">
           <h3>Results</h3>
           <hr />
 
@@ -61,7 +66,11 @@ export const SearchPage = () => {
             Sin resultados con el termino: <strong>{q}</strong>
           </div>
 
-          {/* <HeroCard /> */}
+          {
+            heroes.map( heroe => (
+              <HeroCard key={ heroe.id } {...heroe} className="animate__animated animate__fadeIn mb-2" />
+            ))
+          }
 
         </div>
 
