@@ -26,7 +26,7 @@ export const SearchPage = () => {
   const onSearchSubmit = (event) => {
     event.preventDefault();
     if (searchText.trim().length <= 1) return;
-    console.log({searchText});
+    // console.log({searchText});
     navigate(`?q=${searchText.toLowerCase().trim()}`);
   }
 
@@ -58,11 +58,24 @@ export const SearchPage = () => {
           <h3>Results</h3>
           <hr />
 
-          <div className="alert alert-primary">
+          {/* forma 1 */}
+          {/* {
+            (q === '') && <div className="alert alert-primary">Buscar un heroe</div>
+          } */}
+
+          {/* forma 2 */}
+          {/* {
+            (q === '') 
+            ? <div className="alert alert-primary">Buscar un heroe</div>
+            : (heroes.length === 0) && <div className="alert alert-danger">Sin resultados con el termino: <strong>{q}</strong></div>
+          } */}
+
+          {/* forma 3 */}
+          <div className="alert alert-primary animate__animated animate__fadeIn" style={{ display: (q === '') ? 'block' : 'none'  }}>
             Buscando un heroe
           </div>
 
-          <div className="alert alert-danger">
+          <div className="alert alert-danger animate__animated animate__fadeIn" style={{ display: (q !== '' && heroes.length === 0) ? 'block' : 'none'  }}>
             Sin resultados con el termino: <strong>{q}</strong>
           </div>
 
