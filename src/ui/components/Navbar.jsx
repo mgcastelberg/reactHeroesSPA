@@ -1,7 +1,12 @@
-import { Link, NavLink, replace, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { json, Link, NavLink, replace, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context/AuthContext';
 
 
 export const Navbar = () => {
+
+    const { user } = useContext(AuthContext);
+    // console.log(user.name);
 
     const navigate = useNavigate(); //Considerado como un custom hook
 
@@ -49,7 +54,7 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
 
                     <span className="nav-item nav-link text-info text-bold">
-                        Manuel Gómez
+                        { user?.name }
                     </span>
 
                     <button
