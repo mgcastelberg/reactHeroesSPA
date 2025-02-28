@@ -5,13 +5,13 @@ import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     // console.log(user.name);
 
     const navigate = useNavigate(); //Considerado como un custom hook
 
     const onLogout = () => {
-        console.log('logout');
+        logout();
         navigate('/login',{replace: true});
     }
 
