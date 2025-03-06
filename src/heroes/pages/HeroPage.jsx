@@ -25,16 +25,17 @@ export const HeroPage = () => {
 
   return (
     <div className="row mt-5">
-      <div className="col-4">
+      <div className="col-sm-12 col-md-4 text-center ">
         <img 
           src={`/assets/heroes/${ id }.jpg`} 
           alt={ hero.superhero }
-          className="img-thumbnail animate__animated animate__fadeInLeft"
+          className="img-thumbnail pic-mobile animate__animated animate__fadeInLeft"
+          // style={{width: "200px", height: "auto"}}
           lazy="loading"
         />
       </div>
 
-      <div className="col-8">
+      <div className="col-sm-12 col-md-8">
         <h3>{ hero.superhero }</h3>
         <ul className="list-group list-group-flush">
           <li className="list-group-item"><b>Alter ego: </b>{ hero.alter_ego }</li>

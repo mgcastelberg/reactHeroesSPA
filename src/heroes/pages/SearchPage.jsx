@@ -37,7 +37,7 @@ export const SearchPage = () => {
 
       <div className="row">
 
-        <div className="col-5">
+        <div className="col-sm-12 col-lg-5">
           <form onSubmit={onSearchSubmit}>
             <div className="input-group mb-3">
               <input 
@@ -54,7 +54,7 @@ export const SearchPage = () => {
           </form>
         </div>
 
-        <div className="col-7">
+        <div className="col-sm-12 col-lg-7">
           <h3>Results</h3>
           <hr />
 
