@@ -9,10 +9,12 @@ export const LoginPage = () => {
 
   const onLogin = () => {
 
+    const lastPath = localStorage.getItem('lastPath') || '/marvel';
+
     login('Manux Dark');
 
-    navigate('/marvel', {replace: true});
-    console.log('login');
+    navigate(lastPath, {replace: true});
+    
   }
 
   return (
